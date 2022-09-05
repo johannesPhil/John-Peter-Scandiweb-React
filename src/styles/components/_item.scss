@@ -1,0 +1,25 @@
+.item {
+  position: absolute;
+  display: none;
+
+  &__show {
+    display: block;
+    animation: slide-in 400ms forwards;
+  }
+  &__hide {
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+    top: 3rem;
+    right: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    svg {
+      width: inherit;
+      height: inherit;
+    }
+  }
+}

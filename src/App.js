@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles/main.scss'
+import React, { Component } from 'react'
+import TopBar from './components/TopBar'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import AllCategories from './pages/AllCategories'
+import ClotheCategory from './pages/ClotheCategory'
+import TechCategory from './pages/TechCategory'
+import Wrapper from './pages/partials/Wrapper'
+import { connect } from 'react-redux'
+import CartPeek from './components/CartPeek'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    const { overlay, miniCart } = this.props
+    return (
+      <div className="app">
+        {overlay && <div className="overlay">{miniCart && <CartPeek />}</div>}
+        <Routes>
+          <Route path="/">
+            <Route path="categories" element={<Wrapper />}>
+              <Route path="all" element={<AllCategories />} />
+              <Route path="clothes" element={<ClotheCategory />} />
+              <Route path="tech" element={<TechCategory />} />
+            </Route>
+          </Route>
+        </Routes>
+      </div>
+    )
+  }
+}
+const mapStateToProps = (state) => {
+  const { overlay, miniCart } = state.shop
+  return {
+    overlay,
+    miniCart,
+  }
 }
 
-export default App;
+export default connect(mapStateToProps)(App)

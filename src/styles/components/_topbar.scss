@@ -1,0 +1,109 @@
+.navigation {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 2.8rem 11rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  z-index: 1;
+
+  @include screenSize(S) {
+    padding: 2.8rem 5.5rem 0;
+  }
+
+  @include screenSize(XS) {
+    padding: 2.8rem 2.5rem 0;
+  }
+
+  &__categories,
+  &__purchase {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  &__logo {
+  }
+  &__purchase {
+  }
+
+  &__link {
+    height: inherit;
+    padding: 0 1.6rem 2rem;
+    transition: all 300ms;
+    border-bottom: solid 2px transparent;
+
+    &--active,
+    &:hover {
+      border-bottom: solid 2px $color-green-1;
+    }
+  }
+
+  &__currency {
+    font-size: 1.8rem;
+  }
+
+  &__cart {
+    position: relative;
+    cursor: pointer;
+
+    &--count {
+      position: absolute;
+      width: 1.5rem;
+      height: 1.5rem;
+      top: -30%;
+      right: -35%;
+      background-color: $color-text-1;
+      color: $color-white;
+      border-radius: 50%;
+      font-size: x-small;
+      text-align: center;
+    }
+  }
+}
+
+.currency {
+  position: relative;
+  width: 7rem;
+  display: flex;
+  gap: 1rem;
+  cursor: pointer;
+
+  &__selected {
+  }
+  &__options {
+    position: absolute;
+    height: auto;
+    width: max-content;
+    top: 100%;
+    left: 0;
+    display: none;
+    box-shadow: 1px 0px 18px rgba($color-gray-1, 0.6);
+    z-index: 1;
+    background-color: $color-white;
+
+    &--visible {
+      display: grid;
+    }
+  }
+  &__option {
+    min-width: max-content;
+    padding: 1rem 1rem;
+
+    &:hover {
+      background-color: $color-gray-2;
+      cursor: pointer;
+    }
+  }
+
+  &__arrow {
+    height: fit-content;
+    transition: all 200ms;
+
+    &--flip {
+      transform: rotate(-180deg);
+    }
+  }
+}

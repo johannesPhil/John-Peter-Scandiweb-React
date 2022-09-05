@@ -1,0 +1,140 @@
+.cart-peek {
+  width: max-content;
+  margin-left: auto;
+  padding: 3.2rem 1.6rem;
+  display: grid;
+  gap: 2rem;
+  background-color: $color-white;
+  color: $color-text-black-1;
+
+  &__heading {
+  }
+
+  &__items {
+    height: 30rem;
+    display: grid;
+    gap: 4rem;
+    overflow-y: auto;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__desc {
+    min-height: 100%;
+    width: min-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__price {
+    width: max-content;
+    font-weight: 600;
+  }
+
+  &__attributes {
+    display: grid;
+    gap: 1rem;
+  }
+
+  &__attribute {
+    display: grid;
+    gap: 1rem;
+
+    &--label {
+    }
+    &--items {
+      display: flex;
+      gap: 1rem;
+    }
+    &--item {
+      font-size: 0.8rem;
+      padding: 0.5rem;
+      border: solid 1px $color-text-1;
+    }
+
+    &--selected {
+      position: relative;
+      background-color: $color-text-1;
+      color: $color-white;
+
+      &::after {
+        position: absolute;
+        display: block;
+        content: '';
+        top: -0.4rem;
+        left: -0.4rem;
+        right: -0.4rem;
+        bottom: -0.4rem;
+        border: solid 0.1rem $color-green-1;
+      }
+    }
+  }
+
+  &__controls {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  &__control {
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px $color-text-black-1;
+    cursor: pointer;
+
+    &:hover {
+      border: solid 0.1rem $color-green-1;
+    }
+  }
+
+  &__image {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.6rem;
+    font-family: $font-roboto;
+    font-weight: 600;
+
+    &--label {
+    }
+    &--value {
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    font-family: $font-raleway;
+
+    & > * {
+      padding: 1.3rem 3rem;
+      border: solid 0.1rem transparent;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    &--view {
+      border: solid 0.1rem $color-text-black-1;
+    }
+    &--checkout {
+      background-color: $color-green-1;
+      color: $color-white;
+    }
+  }
+}

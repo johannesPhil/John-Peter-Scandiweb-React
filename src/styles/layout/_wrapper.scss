@@ -1,0 +1,13 @@
+.wrapper {
+  position: relative;
+  max-width: calc(100% - 22rem);
+  margin: auto;
+
+  @include screenSize(S) {
+    max-width: calc(100% - 11rem);
+  }
+
+  @include screenSize(XS) {
+    max-width: calc(100% - 5rem);
+  }
+}

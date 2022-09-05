@@ -1,0 +1,84 @@
+.product {
+  position: relative;
+  padding: 1.6rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.1rem;
+  background-color: $color-white;
+
+  &:hover {
+    box-shadow: 0px 4px 35px rgba($color-gray-3, 0.19);
+  }
+
+  &__picture {
+    position: relative;
+  }
+
+  &__cart {
+    position: absolute;
+    bottom: -1.2rem;
+    right: 1rem;
+    width: 3.4rem;
+    height: 3.4rem;
+    padding: 0.8rem;
+    border-radius: 50%;
+    display: none;
+    background-color: $color-green-1;
+    z-index: 3;
+
+    &img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &:hover &__cart {
+    display: block;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 10px 4px 35px rgba($color-text-1, 0.19);
+    }
+  }
+
+  &__out-of-stock {
+    &:hover {
+      box-shadow: none;
+    }
+
+    &::after {
+      position: absolute;
+      content: 'OUT OF STOCK';
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.7;
+      background-color: $color-white;
+      color: $color-text-black-1;
+      font-weight: bolder;
+    }
+  }
+
+  &__summary {
+    align-self: end;
+    font-size: 1.8rem;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-green-1;
+    }
+  }
+
+  &__name,
+  &__price {
+    font-size: inherit;
+  }
+
+  &__img {
+    object-fit: contain;
+  }
+}

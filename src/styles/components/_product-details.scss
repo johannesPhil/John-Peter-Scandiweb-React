@@ -1,0 +1,134 @@
+.item {
+  position: relative;
+  padding: 8rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5em;
+
+  &__images {
+    height: 40rem;
+    flex: 1 1 50rem;
+    display: flex;
+    gap: 3rem;
+
+    @include screenSize(XS) {
+      height: auto;
+      width: 100%;
+      flex-direction: column-reverse;
+    }
+
+    &--thumbs {
+      position: relative;
+      padding: 1rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      overflow: hidden auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      @include screenSize(XS) {
+        flex-direction: row;
+        overflow: auto hidden;
+      }
+    }
+
+    &--thumb {
+      height: 10rem;
+      width: 10rem;
+      border: solid 1px transparent;
+      transition: all 400ms;
+
+      @include screenSize(XS) {
+        flex: 1 0 10rem;
+      }
+
+      &:hover {
+        border: solid 1px $color-green-1;
+        cursor: pointer;
+      }
+    }
+
+    &--preview {
+      flex: 1 1 20rem;
+    }
+  }
+
+  &__description {
+    flex: 1 1 20rem;
+    display: grid;
+    gap: 3rem;
+    grid-auto-rows: min-content;
+  }
+  &__name {
+    font-size: 3rem;
+    font-weight: 600;
+  }
+
+  &__desc {
+    font-size: 3rem;
+  }
+
+  &__label,
+  &__price {
+    font-family: $font-robo-condensed;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &__attributes {
+    display: grid;
+    gap: 2rem;
+  }
+  &__attribute {
+    display: grid;
+    gap: 1rem;
+
+    &--items {
+      display: flex;
+      gap: 2rem;
+    }
+
+    &--item {
+      flex: 0 0 4rem;
+      height: 3rem;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: solid 1px $color-text-1;
+      cursor: pointer;
+
+      &:hover {
+        border: solid 1px $color-green-1;
+      }
+
+      &-selected {
+        background-color: $color-text-1;
+        color: $color-white;
+      }
+    }
+  }
+  &__action {
+    width: auto;
+    max-width: 30rem;
+  }
+
+  &__btn {
+    width: 100%;
+    margin: auto;
+    padding: 1rem 0;
+    background-color: $color-green-1;
+    color: $color-white;
+    border: transparent;
+    cursor: pointer;
+  }
+}
+img {
+  object-fit: contain;
+}

@@ -1,0 +1,14 @@
+.select {
+  padding: 1rem 2rem;
+  &__element {
+    appearance: none;
+    border: none;
+    outline: none;
+
+    background: transparent;
+    font-size: 1.8rem;
+  }
+  &:hover {
+    background-color: $color-gray-2;
+  }
+}
