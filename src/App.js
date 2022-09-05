@@ -8,6 +8,7 @@ import TechCategory from './pages/TechCategory'
 import Wrapper from './pages/partials/Wrapper'
 import { connect } from 'react-redux'
 import CartPeek from './components/CartPeek'
+import Index from './components/Index'
 
 class App extends Component {
   render() {
@@ -17,8 +18,9 @@ class App extends Component {
         {overlay && <div className="overlay">{miniCart && <CartPeek />}</div>}
         <Routes>
           <Route path="/">
+            <Route path="" element={<Index />} />
             <Route path="categories" element={<Wrapper />}>
-              <Route path="all" element={<AllCategories />} />
+              <Route path="all" index={true} element={<AllCategories />} />
               <Route path="clothes" element={<ClotheCategory />} />
               <Route path="tech" element={<TechCategory />} />
             </Route>
